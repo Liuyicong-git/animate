@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="arrow"></div>
+
+    </div>
+    <button id="start">开始</button>
+</body>
+<style>
+    .container {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        background: #e5e5e5;
+    }
+    .arrow {
+        position: absolute;
+        top:25%;
+        left: 35%;
+        width: 80px;
+        height: 50%;
+        background: url('./arrow.jpg');
+        background-size: 100% 100%;
+    }
+    .is-active {
+        animation-name: nostop ,stop;
+        animation-timing-function: linear , ease-out;
+        animation-iteration-count: 2 , 1;
+        animation-duration: 1s , 3s;
+        animation-delay: 0s , 2s;
+        animation-fill-mode: forwards , forwards;
+    }
+    @keyframes nostop {
+        0% {
+            transform:  rotate(0deg)
+        }
+        100%{
+            transform:  rotate( 360deg )
+        }
+    }
+    @keyframes stop {
+
+        100% {
+            transform: rotate(420deg)
+        }
+    }
+
+
+
+</style>    
+<script>
+    $('#start').click(function(){
+        $('.arrow').addClass('is-active');
+    })
+</script>    
+</html>

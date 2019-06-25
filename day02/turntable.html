@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #container{
+        position: relative;
+        overflow: hidden;
+        margin: 50px;
+        width: 340px;
+        height: 340px;
+        border: 7px solid #b2a98d;
+        border-radius: 50%;  
+        box-shadow: 0 0 20px #b2a98d;
+    }
+    #turn-light{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #e0ddd1;
+    }
+    #turn-light span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 10px;
+        height: 100%;
+    }
+    #turn-light span:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+#turn-light span:nth-of-type(even):before {
+    background: #fff;
+    animation: white-to-yellow 1s linear infinite;
+}
+/* #turn-light span:nth-of-type(odd):before {
+    background: #d7a945;
+    animation: white-to-yellow 1s linear reverse infinite;
+} */
+
+</style>
+<script>
+    let light = 18;
+    let lightFragment = document.createDocumentFragment();
+    for (let i = 0; i < light; i++) {
+        let lightItem = document.createElement('span');
+        let deg = (360 / light) * i
+        lightItem.style.transform = `rotate(${deg}deg)`;
+        lightFragment.appendChild(lightItem);
+        
+    }
+    debugger;
+    setTimeout( ()=>{
+        document.getElementById('turn-light').appendChild(lightFragment);
+    },500)
+   
+</script>  
+<body>
+    <div id="container">
+        <div id="turn-light"></div>
+    </div>    
+</body>
+
+</html>

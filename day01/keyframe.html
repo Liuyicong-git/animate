@@ -7,21 +7,21 @@
     <title>Document</title>
 </head>
 <style>
-    /**
-        transition 目标对象属性；
-        transition propetry times function delay;
-
-        performer 动画触发目标
-    **/
     .box {
         
         width: 200px;
         height: 200px;
         background: pink;
-        transition:  transform 300ms ease-in-out;
+        animation:  mykeyfram 3000ms ease-in-out;
     }
-    .box:hover {
-        transform: translate(100px , 100px)  rotate( 20deg ) ;
+    @keyframes mykeyfram {
+        0% {
+            width: 200px;
+        }
+        100%{
+            width: 500px;
+            background: orange;
+        }
     }
 </style>    
 <body>
